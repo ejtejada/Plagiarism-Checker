@@ -14,7 +14,7 @@ import sys
 import operator
 import urllib, urllib2
 import json as simplejson
-from azure.cognitiveservices.search.websearch import WebSearchAPI
+from azure.cognitiveservices.search.websearch import WebSearchAPI #FIXME (This is currently broken when using higher than the 1.0 API in Ubuntu)
 from azure.cognitiveservices.search.websearch.models import SafeSearch
 from msrest.authentication import CognitiveServicesCredentials
 
@@ -55,7 +55,7 @@ def searchWeb(text,output,c):
     #    return output,c
     #using googleapis for searching web
     try:
-        subscription_key = "9ea45659ed914562b85ed5b1a1feb1f1"
+        subscription_key = "9ea45659ed914562b85ed5b1a1feb1f1"#FIXME (Update this to my Azure subscription key?)
         client = WebSearchAPI(CognitiveServicesCredentials(subscription_key))
         response = client.web.search(query=text)
         if hasattr(response.web_pages, 'value'):
