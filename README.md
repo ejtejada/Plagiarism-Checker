@@ -4,38 +4,43 @@ A utility to check if a document's contents are plagiarised.
 
 ## How it works
 
-*   It searches online using Google Search API's for some queries. Queries are n-grams extracted from the source txt file.
+*   It searches online using BING Search API's for some queries. Queries are n-grams extracted from the source txt file.
 *   Resulting URL, matched contents are checked for similarity with given text query.
 *   Result of average similarity of all URL's is stored in output text file.
 
 ## Required Libraries
-The project uses python-docx module to decode docx files. The python-docx module has its own set of dependent libraries. The required libraries are:
+The project uses python-docx module to decode docx files. The python-docx module has its own set of dependent libraries. The project currently uses the Bing API for search comparisons. The required libraries are:
 
 *   PIL
 *   lxml
 *   python-dateutil
 *   python-docx
+*   azure
+*   azure-cognitiveservices-search-websearch
 
-### GETTING LIBRARIES ON LINUX
+### GETTING LIBRARIES ON UBUNTU
 
 * Get easy_install
 
 ```bash
-sudo apt-get install python-setuptools
+sudo apt install python-setuptools
 ```
 * Install PIP
 
 ```bash
 sudo easy_install pip
+sudo apt install python-pil
 ```
 * Install dependent libraries
 
 ```bash
-sudo pip install PIL
-
 sudo pip install lxml
 
 sudo pip install python-dateutil
+
+sudo pip install azure
+
+sudo pip install azure-cognitiveservices-search-websearch
 ```
 
 * Install python-docx
@@ -47,17 +52,17 @@ sudo pip install docx
 * Install pdftotext for pdf support (sketchy at the moment)
 
 ```bash
-sudo apt-get install poppler-utils
+sudo apt install poppler-utils
 ```
 
 * Get ppt and doc support
 
 ```bash
-sudo apt-get install catdoc
+sudo apt install catdoc
 ```
 
 ### GETTING LIBRARIES ON WINDOWS
-
+### DEPRECATED
 These steps assume you already have python installed and that python is in your windows environment variables.
 
 Download [setup-tools](http://pypi.python.org/pypi/setuptools) according to your python version. (That is python 2.7 in most cases)
